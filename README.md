@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📧 Google OAuth Task
 
-## Getting Started
+This project is built as part of the assignment provided by **Indian App Guy**.  
+It integrates **Google OAuth**, **Gmail API**, and **AI-based Email Classification** using Groq/OpenAI API.
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+✅ **Google Authentication**
+- Secure login using Google OAuth (NextAuth.js)
+- User sessions managed safely with cookies
+
+✅ **Fetch Gmail Emails**
+- After login, the app fetches the user’s recent 15 emails using the Gmail API
+
+✅ **AI-based Email Classification**
+- Uses Groq/OpenAI model to automatically classify emails into relevant categories
+
+✅ **Clean UI with TailwindCSS**
+- Professional and responsive user interface for a smooth experience
+
+---
+
+## 🧩 Tech Stack
+
+- **Next.js 14 (App Router)**
+- **NextAuth.js (Google OAuth)**
+- **Gmail API (googleapis package)**
+- **Groq/OpenAI API (for classification)**
+- **Tailwind CSS (for styling)**
+
+---
+
+## ⚙️ Setup Instructions (Run Locally)
+
+Follow these steps to run the project on your local machine:
+
+### 1️⃣ Clone the Repository
 ```bash
+git clone https://github.com/gauravaps/google-oauth-task.git
+cd google-oauth-task
+
+
+2️⃣ Install Dependencies
+npm install
+
+
+3️⃣ Setup Environment Variables
+
+Create a .env.local file in the root folder and add the following variables:
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXTAUTH_SECRET=your_random_secret_key
+NEXTAUTH_URL=http://localhost:3000
+
+# Groq/OpenAI Key
+GROQ_API_KEY=your_groq_api_key
+
+
+4️⃣ Run the App
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Then open:
+👉 http://localhost:3000  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+How It Works
 
-To learn more about Next.js, take a look at the following resources:
+Login with Google → User authenticates using Google OAuth
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fetch Emails → Fetches recent emails from Gmail inbox
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Classify Emails → AI classifies emails into categories like Promotions, Updates, Social, etc.
 
-## Deploy on Vercel
+Display Results → Shows classification neatly on the dashboard  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Developer
+Name: Gaurav Patel
+Email: gauravpatel@example.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: github.com/gauravaps
+
+
+Note
+
+Google has updated the OAuth verification process —
+to test the Gmail integration, please add the following email as a test user in your Google Cloud Console:
+📧 theindianappguy@gmail.com
