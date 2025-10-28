@@ -1,13 +1,25 @@
+"use client";
 
-const page = () => {
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import AuthButtons from "./components/AuthButtons";
+import { useEffect } from "react";
+
+export default function Home() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard"); 
+    }
+  }, [session, router]);
+
   return (
-    <div>page application is here...////
-      <h1> hello from my new nextjs application...</h1>
-      <h2>here profile component will be added...</h2>
-    <profile />
-  
-    </div>
-  )
+    <main className="flex flex-col items-center justify-center h-screen space-y-4">
+      <h1 className="text-2xl font-bold">Magic Email Classifier</h1>
+      <AuthButtons />
+    </main>
+  );
 }
-
-export default page
+   
